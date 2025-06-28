@@ -14,4 +14,18 @@ This project aims to bridge that gap by analyzing 311 trends to predict neighbor
 - Build an interactive dashboard to visualize high-risk areas and support early intervention
 
 ## 🌍 Real-World Relevance
-This project helps city departments and public health agencies leverage 311 complaint data as an early warning system for health and cost-related risks. By identifying patterns and predicting where issues are likely to escalate, the model supports timely, data-driven interventions that can prevent avoidable health crises and reduce public spending. It also promotes greater transparency and ensures resources are allocated more equitably—especially in underserved neighborhoods that often face delayed responses.D
+This project helps city departments and public health agencies leverage 311 complaint data as an early warning system for health and cost-related risks. By identifying patterns and predicting where issues are likely to escalate, the model supports timely, data-driven interventions that can prevent avoidable health crises and reduce public spending. It also promotes greater transparency and ensures resources are allocated more equitably—especially in underserved neighborhoods that often face delayed responses.
+
+## ❓ Research Questions & Hypotheses
+
+### 🔍 Research Questions
+1. Do certain types of 311 complaints (e.g., rodent, sanitation, air quality) correlate with poor public health outcomes in specific NYC neighborhoods?
+2. Can patterns in complaint frequency predict future spikes in health-related issues such as asthma or emergency visits?
+3. Are there neighborhoods where unresolved 311 complaints are consistently followed by higher healthcare-related costs?
+4. Does complaint response time differ by neighborhood income level or demographic profile?
+
+### 💡 Hypotheses
+- **H1**: Neighborhoods with high volumes of rodent and sanitation complaints will also show higher asthma or respiratory illness rates.
+- **H2**: A time lag exists between complaint spikes and increased emergency room visits or health costs.
+- **H3**: Underserved or low-income neighborhoods have longer complaint resolution times, contributing to worse health outcomes.
+- **H4**: Predictive models built on 311 trends can identify at-risk areas before official health data flags them.
