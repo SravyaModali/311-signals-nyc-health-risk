@@ -52,11 +52,21 @@ This project uses data from multiple publicly available NYC datasets to analyze 
 - **Key Fields**: Neighborhood income, population density, public expenditure by zip
 - **Usage**: Estimating financial risk and identifying underserved areas
 
-│   └── 03_modeling.ipynb
-│
-├── outputs/
-│
-├── README.md
-└── requirements.txt (optional)
+## 🔍 Step 4: Data Collection & Filtering
 
+This step focuses on narrowing down the datasets for meaningful, location-aligned analysis.
+
+- **Timeframe Selected**: 2020–Present (to capture pre/post-COVID trends)
+- **Geography**: All five NYC boroughs (ZIP-level filtering)
+- **311 Complaints Filtered by Type**:
+  - Mold, Rodent, Unsanitary Condition, Plumbing, Air Quality, etc.
+- **Downloaded Datasets Organized in `data/` folder** with relevant filenames
+- ****🔗 Large Files (External Downloads)**
+
+Due to GitHub's file size limitations, the following large datasets are hosted on Google Drive:
+
+- [311_filtered_complaints_2020_2024.csv](https://drive.google.com/file/d/12UVB9y2OfdQKsW5suYzSDKOebwpvj0HZ/view?usp=sharing)
+- [SPARCS_inpatient_NYC_2020_2022.csv](https://drive.google.com/file/d/1QroR-wm8Cmrjg3rnuG6YQ_yhb6TncqpR/view?usp=sharing)
+
+This filtered data will feed into the next phase of the project for cleaning, merging, and analysis.
 
