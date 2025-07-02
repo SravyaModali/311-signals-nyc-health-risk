@@ -29,3 +29,41 @@ This project helps city departments and public health agencies leverage 311 comp
 - **H2**: A time lag exists between complaint spikes and increased emergency room visits or health costs.
 - **H3**: Underserved or low-income neighborhoods have longer complaint resolution times, contributing to worse health outcomes.
 - **H4**: Predictive models built on 311 trends can identify at-risk areas before official health data flags them.
+
+## 📂 Data Sources & Files
+
+This project uses open public datasets from NYC agencies and federal census sources to analyze 311 complaints, health outcomes, demographics, and government spending.
+
+| Filename                                 | Description                                                                                 | Source            |
+|------------------------------------------|---------------------------------------------------------------------------------------------|-------------------|
+| `311_filtered_complaints_2024_2025.xlsx` | NYC 311 service requests related to health signals (e.g., rodents, air quality, mold)       | NYC Open Data     |
+| `ACS_NYC_Data_DP05.xlsx`                 | Demographic profile (age, race, sex) by ZIP code                                            | U.S. Census ACS   |
+| `ACS_NYC_Data_B25008.xlsx`               | Housing condition data: population in occupied housing units by tenure                     | U.S. Census ACS   |
+| `Community Health Profiles.xlsx`         | Public health indicators by NYC neighborhood (e.g., asthma rates, chronic conditions)       | NYC Health Dept.  |
+| `Hospital Inpatient Discharges.xlsx`     | SPARCS hospital discharge data with top diagnoses by county                                | NY State Health   |
+| `NYC_Checkbook.csv`                      | Spending by NYC agencies — budget, contract, and payroll details by department              | NYC Checkbook     |
+
+## 🗂️ Folder Structure
+
+Here’s how the files and scripts are organized:
+
+311-signals-health-costs-nyc/
+├── data/
+│   ├── 311_filtered_complaints_2024_2025.xlsx
+│   ├── ACS_NYC_Data_DP05.xlsx
+│   ├── ACS_NYC_Data_B25008.xlsx
+│   ├── Community_Health_Profiles.xlsx
+│   ├── Hospital_Inpatient_Discharges.xlsx
+│   └── NYC_Checkbook.csv
+│
+├── notebooks/
+│   ├── 01_cleaning.ipynb
+│   ├── 02_exploration.ipynb
+│   └── 03_modeling.ipynb
+│
+├── outputs/
+│
+├── README.md
+└── requirements.txt (optional)
+
+
