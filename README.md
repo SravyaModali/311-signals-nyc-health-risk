@@ -70,3 +70,31 @@ Due to GitHub's file size limitations, the following large datasets are hosted o
 
 This filtered data will feed into the next phase of the project for cleaning, merging, and analysis.
 
+## 🧹 Step 5: Data Cleaning & Preprocessing
+
+To ensure analysis-ready datasets, each raw file was cleaned by handling missing values, fixing structural inconsistencies, and preparing for merging by location and time. Below is a summary of the preprocessing work completed:
+
+### 🔍 Cleaning Tasks Performed
+
+- **Handled Missing Values**: 
+  - Dropped rows missing critical fields like `Zip Code`, `Complaint Type`, `Discharge Year`, etc.
+  - Filled non-critical fields with `"Unknown"` to retain structure.
+  
+- **Standardized Column Names**:
+  - Removed leading/trailing spaces and fixed formatting issues.
+
+- **Structured and Saved Clean Versions**:
+  - Each cleaned file was saved under a new `/data` directory for downstream use.
+
+### ✅ Cleaned Files
+
+| File Name                                         | Format | Notes                                                                 |
+|--------------------------------------------------|--------|-----------------------------------------------------------------------|
+| `311_filtered_complaints_2020_2024.csv`          | CSV    | Cleaned missing zip codes, complaint types, and address info         |
+| `ACS_B25008_housing_cleaned.xlsx`                | Excel  | Housing estimates cleaned and formatted                              |
+| `ACS_DP05_demographics_cleaned.xlsx`             | Excel  | Demographic totals and estimates cleaned                             |
+| `NYC_checkbook_2022_cleaned.csv`                 | CSV    | Budget data filtered by agency name and spending type                |
+| `NYC_community_health_profiles_cleaned.xlsx`     | Excel  | Extracted `CHP_all_data` sheet and cleaned borough/neighborhood data |
+| `SPARCS_inpatient_NYC_2020_2022_cleaned.csv`     | CSV    | Cleaned inpatient diagnosis and discharge data by ZIP                |
+
+---
