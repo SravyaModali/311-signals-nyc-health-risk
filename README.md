@@ -98,3 +98,107 @@ To ensure analysis-ready datasets, each raw file was cleaned by handling missing
 | `SPARCS_inpatient_NYC_2020_2022_cleaned.csv`     | CSV    | Cleaned inpatient diagnosis and discharge data by ZIP                |
 
 ---
+
+## 🧠 Step 6: Feature Engineering
+
+This step focuses on transforming and enriching the cleaned 311 complaint data to extract useful signals for predictive analytics and visualization. Key engineered features include complaint frequency, service resolution metrics, lag variables, and population-based normalization.
+
+### 🔧 What Was Done
+
+- **📅 Complaint Frequency Metrics:**  
+  Grouped 311 complaints by `Incident Zip` and `YearMonth` to track temporal trends and density of complaints across time.
+
+- **⏳ Resolution Times:**  
+  Calculated complaint resolution time (in days) as the difference between `Created Date` and `Closed Date`.
+
+- **🔁 Lag Features:**  
+  Created `Lag_Complaint_Count` by shifting previous month's complaint totals per ZIP to model predictive relationships with public health outcomes.
+
+- **📊 Demographic Integration:**  
+  Merged cleaned ACS DP05 population data by ZIP, enabling calculation of:
+  - `Complaints_per_1000 = (Total Complaints / Population) * 1000`
+
+- **📁 Files Added:**
+  - `/notebooks/feature_engineering.ipynb` – The notebook containing all transformations and visual previews.
+  - `/data/311_with_population_features.csv` – Final engineered dataset including temporal, resolution, and normalized fields.
+
+### ✅ Outcome
+The dataset is now enriched with actionable metrics and ready for Exploratory Data Analysis (EDA) and modeling.
+
+## 🔍 7. Exploratory Data Analysis (EDA)
+
+The goal of this step is to uncover patterns, trends, and relationships in NYC 311 complaints, population demographics, and public health data. EDA helps us understand which complaint types dominate, how they vary across ZIP codes, and whether they correlate with healthcare burdens like emergency room (ER) visits.
+
+### 📌 Sub-Steps Covered:
+| Sub-Step | Description |
+|----------|-------------|
+| **7.1 Complaint Type Distributions** | Identify the most common complaint types affecting NYC neighborhoods. |
+| **7.2 Temporal Trends by Neighborhood** | Track how complaint volumes change over time in different ZIP codes. |
+| **7.3 Heatmaps & Correlation Analysis** | Explore statistical relationships between complaints, population, and response times. |
+| **7.4 Health vs Complaint Rate Visualizations** | Compare normalized complaint rates with SPARCS ER visits to detect public health signals. |
+| **7.5 Mapping Complaint Hotspots** | Visualize complaint concentrations on NYC maps using GeoJSON and Folium overlays. |
+
+Each of these steps builds the foundation for predictive modeling and risk analysis in the final stages.
+
+## 📊 7.1 Complaint Type Distributions
+
+This visualization displays the **top health-relevant 311 complaint types** recorded across NYC.
+
+### 🔍 Observations:
+- **Noise - Residential** and **Noise - Street/Sidewalk** are the most frequently reported issues, highlighting ongoing environmental stressors.
+- **Rodent** and **Indoor Air Quality** complaints, while smaller in count, are directly linked to public health risks (e.g., asthma, food safety).
+- These findings helped us identify and isolate complaints that are most likely to impact health outcomes in later analysis steps.
+
+> ✅ This step helps prioritize complaint categories that warrant closer attention when correlating with health and hospitalization data.
+
+### 7.2 Temporal Trends by Neighborhood
+
+In this analysis, we examined how complaint volume changes over time across different ZIP codes in NYC. Monthly complaint counts were aggregated and visualized for the top 5 ZIP codes with the highest total volume.
+
+The resulting line chart provides a clear view of complaint patterns, highlighting seasonal trends or sudden spikes in activity.
+
+**Key Insight:**  
+ZIP code **10466** showed a significant surge in complaints during late 2024, potentially indicating a localized issue or disruption. This trend could warrant further investigation into events or conditions that triggered the rise. Tracking these patterns over time helps city agencies allocate resources and respond proactively to emerging concerns.
+
+### 7.3 Heatmaps & Correlation Analysis
+
+This section focuses on examining potential relationships between different numerical variables in the dataset. Using a correlation matrix visualized as a heatmap, we explored how complaint response time, total population, and complaints per 1000 residents relate to each other.
+
+**Key Observations:**
+
+- There is **low or negligible correlation** between **Response Time** and **Total Population** or **Complaint Rate**.
+- A **weak positive correlation (0.18)** exists between **Total Population** and **Complaints per 1000 Residents**, suggesting that complaint rates are somewhat higher in more densely populated ZIP codes.
+- Response times remain consistent across different complaint volumes, implying good operational response regardless of population or complaint density.
+
+These correlations provide helpful signals for prioritizing which variables matter in predictive modeling or resource allocation.
+
+### 7.4 Health vs Complaint Rate Visualizations
+
+To explore the potential relationship between civic complaints and public health burden, we visualized a scatter plot comparing:
+
+- **311 complaints per 1000 residents** (horizontal axis) and
+- **Emergency Room visits** from the SPARCS dataset (vertical axis), aggregated by 3-digit ZIP code.
+
+**Key Observations:**
+
+- ZIP code regions with unusually high complaint rates tend to also show elevated ER visits, suggesting a potential link between unresolved civic issues and adverse health outcomes.
+- One notable outlier (ZIP starting with 104 — likely the Bronx) had the highest complaint density and also one of the highest ER visit totals. This aligns with known public health and housing concerns in the area.
+
+This visualization helps identify areas where investments in civic infrastructure and environmental conditions could yield both community and health benefits.
+
+### 7.5 Mapping Complaint Hotspots
+
+This step visualizes the density of health-related 311 complaints (e.g., Rodent, Indoor Air Quality) per 1000 residents across NYC ZIP codes using a choropleth map.
+
+**Key Insights:**
+
+- 🔴 **Hotspot ZIP codes** like `10466` and surrounding Bronx neighborhoods show **high normalized complaint rates**, suggesting potential clusters of poor housing conditions.
+- 🟡 In contrast, some densely populated ZIPs in Manhattan show **lower complaint rates**, which may reflect better infrastructure or lower reporting from underrepresented groups.
+- 🌍 The visualization reveals **clear spatial disparities** in public health and housing maintenance, aligning with known socioeconomic trends in outer boroughs like the Bronx and Queens.
+- ⚠️ These hotspots can be cross-referenced with ER visit data to identify areas where unresolved civic complaints may correlate with elevated health risks.
+
+**Why it’s useful:**
+
+- Supports **targeted interventions** by city health/housing departments.
+- Can inform **resource allocation**, especially for vulnerable ZIPs.
+- Helps identify **systemic reporting gaps** or under-resourced neighborhoods.
