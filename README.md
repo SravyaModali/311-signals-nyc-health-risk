@@ -263,7 +263,7 @@ Data was split by ZIP3 codes – a portion of ZIPs were used to train the model,
   - 🟠 Medium Priority
   - 🟢 Low Priority
 
-👉 Map: [file:///C:/Users/sravy/data/zip3_health_risk_map.html](file:///C:/Users/sravy/data/zip3_health_risk_map.html)
+👉 Map: [Click here to view the Health Risk Map](https://sravyamodali.github.io/311-signals-nyc-health-risk/zip3_health_risk_map.html)
 
 ---
 
