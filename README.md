@@ -140,7 +140,7 @@ The goal of this step is to uncover patterns, trends, and relationships in NYC 3
 
 Each of these steps builds the foundation for predictive modeling and risk analysis in the final stages.
 
-## 📊 7.1 Complaint Type Distributions
+### 📊 7.1 Complaint Type Distributions
 
 This visualization displays the **top health-relevant 311 complaint types** recorded across NYC.
 
@@ -203,7 +203,7 @@ This step visualizes the density of health-related 311 complaints (e.g., Rodent,
 - Can inform **resource allocation**, especially for vulnerable ZIPs.
 - Helps identify **systemic reporting gaps** or under-resourced neighborhoods.
 
-## 🔮 8. Predictive Modeling
+## 🔮 Step 8: Predictive Modeling
 
 In this step, we forecast public health risks by modeling Emergency Room (ER) visits based on civic complaint patterns (from 311 data). This approach helps city agencies preemptively identify neighborhoods at risk and take preventive action.
 
