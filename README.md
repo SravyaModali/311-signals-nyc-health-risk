@@ -202,3 +202,76 @@ This step visualizes the density of health-related 311 complaints (e.g., Rodent,
 - Supports **targeted interventions** by city health/housing departments.
 - Can inform **resource allocation**, especially for vulnerable ZIPs.
 - Helps identify **systemic reporting gaps** or under-resourced neighborhoods.
+
+## 🔮 8. Predictive Modeling
+
+In this step, we forecast public health risks by modeling Emergency Room (ER) visits based on civic complaint patterns (from 311 data). This approach helps city agencies preemptively identify neighborhoods at risk and take preventive action.
+
+---
+
+### ✅ Objective:
+Build a predictive model to estimate ER visits by ZIP3 using features like:
+- Complaint counts (health-related)
+- ZIP-level demographics (e.g., population)
+- Temporal trends (monthly)
+
+---
+
+### 📊 Dataset Used:
+- `zip3_complaints_er_merged.csv` – merged 311 complaints and ER visit data by 3-digit ZIP codes.
+- GeoJSON files for spatial visualization (used later).
+
+---
+
+### ⚙️ Process:
+
+#### • Model Selection:
+We used a **Poisson Regression** model since ER visits are **count data**. It fits scenarios where target values are non-negative integers and follow a Poisson distribution.
+
+#### • Splitting Training & Test Sets:
+Data was split by ZIP3 codes – a portion of ZIPs were used to train the model, and the rest were used for validation.
+
+#### • Features Used:
+- Complaint_Count (per ZIP3)
+- Demographic (population normalization)
+- Complaint types (filtered for health signals like Mold, Rodents, etc.)
+
+#### • Target:
+- `ER_Visits` (number of emergency room visits per ZIP3)
+
+---
+
+### 📈 Model Results:
+
+- **Model**: `Poisson Regression`
+- **McFadden’s Pseudo R²**: ~0.67 → Indicates good model fit (values between 0.2 - 0.4 are decent; >0.5 is strong).
+- **Predicted vs Actual ER Visits** showed strong alignment with some natural variance.
+
+---
+
+### 🔍 Feature Insights:
+| Feature          | Coefficient | Interpretation                                |
+|------------------|-------------|-----------------------------------------------|
+| Complaint_Count  | +ve         | More complaints → higher predicted ER visits  |
+
+---
+
+### 🗺 Visual Output:
+- **Risk Map** of top ZIP3 areas with predicted ER visits.
+- Regions color-coded into:
+  - 🔴 High Priority
+  - 🟠 Medium Priority
+  - 🟢 Low Priority
+
+👉 Map: [zip3_health_risk_map.html](./zip3_health_risk_map.html)
+
+---
+
+### ✅ Takeaway:
+This model helps:
+- Prioritize ZIPs for inspections, public health outreach, or sanitation efforts.
+- Allocate resources to prevent reactive healthcare expenses.
+- Identify complaint types most associated with hospitalizations.
+
+---
+
