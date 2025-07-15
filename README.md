@@ -125,7 +125,7 @@ This step focuses on transforming and enriching the cleaned 311 complaint data t
 ### ✅ Outcome
 The dataset is now enriched with actionable metrics and ready for Exploratory Data Analysis (EDA) and modeling.
 
-## 🔍 7. Exploratory Data Analysis (EDA)
+## 🔍 Step 7: Exploratory Data Analysis (EDA)
 
 The goal of this step is to uncover patterns, trends, and relationships in NYC 311 complaints, population demographics, and public health data. EDA helps us understand which complaint types dominate, how they vary across ZIP codes, and whether they correlate with healthcare burdens like emergency room (ER) visits.
 
