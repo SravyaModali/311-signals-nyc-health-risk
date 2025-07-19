@@ -275,4 +275,24 @@ This model helps:
 - Identify complaint types most associated with hospitalizations.
 
 ---
+## Step 9: Visualization & Dashboarding
+
+We used **Power BI** to build a comprehensive and interactive dashboard that highlights complaint trends, health risks, and neighborhood prioritization.
+
+#### 📊 Key Visual Components:
+- **Interactive Maps**: Showing 311 complaint density across NYC neighborhoods.
+- **Line Charts & Bar Plots**: Visualizing trends and comparisons between predicted vs actual ER visits.
+- **Heatmaps**: Representing correlation between complaint volume and population data.
+- **KPI Cards**: Displaying total complaints, total ER visits, and average predicted ER visits.
+- **Risk Scoring System**: ZIP3 areas flagged as **High**, **Medium**, or **Low Priority** based on predicted ER visits.
+
+#### 🛠️ Tool Used:
+[Power BI](https://powerbi.microsoft.com/)
+
+#### 📁 Dashboard File:
+The full Power BI report is available here:
+
+👉 [`NYC Health Risk Prediction Dashboard.pbix`](./NYC%20Health%20Risk%20Prediction%20Dashboard.pbix)
+
+> 📌 **Note:** Download and open this `.pbix` file in [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) to explore all the visualizations and insights interactively.
 
